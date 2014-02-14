@@ -12,7 +12,7 @@ public class BookReference extends Reference {
 	private String publisher;
 	public BookReference(ArrayList<String> authors, String editor, int publishDate,
 			String bookTitle, String edition, String location, String publisher){
-		super(authors);
+		super(authors, Reference.BOOK_REF);
 		this.editor=editor;
 		this.publishDate=publishDate;
 		this.bookTitle=bookTitle;

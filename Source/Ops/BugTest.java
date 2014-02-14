@@ -17,15 +17,16 @@ public class BugTest {
 		a.add(a1);
 		a.add(a2);
 		a.add(a3);
-		Reference r=new Reference(a);
+		Reference r=new Reference(a,Reference.BOOK_REF);
 		
 		System.out.println("Sorting...");
-		r.createAuthorString();
-		ArrayList<String> alist=r.getAuthors();
+		Formatter f=new Formatter();
+		f.sortAuthors(r);
+		ArrayList<String> alist=r.getAuthorList();
 		for(String au:alist){
 			System.out.println(au+" - "+alist.indexOf(au));
 		}
 		System.out.println("DONE");
-		System.out.println(r.getAuthorString());
-		}
+		System.out.println(f.getAuthorListAsString(r));
+	}
 }
