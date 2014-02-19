@@ -13,25 +13,26 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.BoxLayout;
+import java.awt.FlowLayout;
 
-public class authorFrame extends JPanel {
+public class AuthorFrame extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField surnameField;
 	private JTextField initialField;
 	private JTextPane authorListPane;
 	private JButton addAuthorButton;
-	public authorFrame(){
-		super();
+	private JButton delAuthorButton;
+	public AuthorFrame(){
+		setPreferredSize(new Dimension(250,700));
 		setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		setLayout(new BorderLayout());
-		setPreferredSize(new Dimension(250,700));
 		buildComponent();
 	}
 	private void buildComponent(){
+
 			
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		panel_1.setPreferredSize(new Dimension(250,700));
 		add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.Y_AXIS));
 		
@@ -57,9 +58,13 @@ public class authorFrame extends JPanel {
 		
 		JPanel bPannel = new JPanel();
 		panel_1.add(bPannel);
+		bPannel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		addAuthorButton = new JButton("Add Author and Reset");
 		bPannel.add(addAuthorButton);
+		
+		delAuthorButton = new JButton("Delete Author");
+		bPannel.add(delAuthorButton);
 		
 		JPanel lPanel = new JPanel();
 		lPanel.setBorder(new TitledBorder(null, "Current Authors", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -87,5 +92,8 @@ public class authorFrame extends JPanel {
 	}
 	public JTextPane getListPane(){
 		return authorListPane;
+	}
+	public JButton getDeleteAuthorButton() {
+		return delAuthorButton;
 	}
 }
